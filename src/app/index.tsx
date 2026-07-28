@@ -1,11 +1,17 @@
 import { router } from "expo-router";
 import { useEffect } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 export default function SplashScreen() {
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace("/home");
+      router.replace("/menu/home");
     }, 3000);
 
     return () => clearTimeout(timer);
@@ -19,43 +25,47 @@ export default function SplashScreen() {
       />
 
       <Text style={styles.title}>
-        ¡ESPAÑA CAMPEÓN DEL MUNDIAL 2026!
+        ¡España Campeón Mundial 2026!
       </Text>
 
       <Text style={styles.subtitle}>
-        Bienvenido a la aplicación oficial
+        Bienvenido
       </Text>
+
+      <ActivityIndicator
+        size="large"
+        color="#FFD700"
+        style={{ marginTop: 30 }}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#CA1111",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 20,
+    flex:1,
+    backgroundColor:"#AA151B",
+    justifyContent:"center",
+    alignItems:"center"
   },
 
-  logo: {
-    width: 200,
-    height: 200,
-    resizeMode: "contain",
-    marginBottom: 25,
+  logo:{
+    width:200,
+    height:200
   },
 
-  title: {
-    fontSize: 34,
-    fontWeight: "bold",
-    color: "#FFD700",
-    textAlign: "center",
-    marginBottom: 15,
+  title:{
+    fontSize:32,
+    color:"#FFD700",
+    fontWeight:"bold",
+    textAlign:"center",
+    marginTop:20
   },
 
-  subtitle: {
-    fontSize: 20,
-    color: "#FFFFFF",
-    textAlign: "center",
-  },
+  subtitle:{
+    color:"white",
+    fontSize:18,
+    marginTop:10
+  }
+
 });
